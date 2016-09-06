@@ -4,7 +4,7 @@ namespace ConfigRenamer
 
     using ConfigRenamer.Model;
 
-    internal class Options
+    public class Options
     {
         #region Public Properties
 

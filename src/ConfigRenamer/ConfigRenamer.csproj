@@ -75,6 +75,7 @@
     <Compile Include="Model\Rename.cs" />
     <Compile Include="Model\SearchProvider.cs" />
     <Compile Include="Model\Ability.cs" />
+    <Compile Include="Services\ConfigRenamerService.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
