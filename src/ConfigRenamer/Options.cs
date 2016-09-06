@@ -9,10 +9,10 @@ namespace ConfigRenamer
         #region Public Properties
 
         [Option('s', "SearchProvider", Required = true, HelpText = "Search Provder")]
-        public SearchProviderEnum SearchProvider { get; set; }
+        public SearchProvider SearchProvider { get; set; }
 
         [Option('r', "role", Required = true, HelpText = "Server role")]
-        public ServerRoleEnum ServerRole { get; set; }
+        public string ServerRole { get; set; }
 
         [Option('v', "version", Required = true, HelpText = "Sitecore version")]
         public string Version { get; set; }
@@ -28,5 +28,5 @@ namespace ConfigRenamer
              var configSet = "8.1Upd3.csv";
             var serverRole = ServerRoleEnum.ContentManagement;
             var webRoot = @"D:\Dev\personal\ConfigRenamer\TestData\Working";
-            var searchProvider = SearchProviderEnum.Lucene;
+            var searchProvider = SearchProvider.Lucene;
  */

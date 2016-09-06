@@ -1,11 +1,9 @@
 ﻿namespace ConfigRenamer.Model
 {
-    internal enum SettingEnum
+    internal enum Ability
     {
         NotApplicable, 
-
         Enable, 
-
         Disable 
     }
 }

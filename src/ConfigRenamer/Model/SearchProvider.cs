@@ -1,6 +1,6 @@
 namespace ConfigRenamer.Model
 {
-    internal enum SearchProviderEnum
+    internal enum SearchProvider
     {
         All, 
 

@@ -1,4 +1,4 @@
-Product Name,File Path,Config file name,Config Type,Search Provider Used,Content Delivery (CD),Content Management (CM),Processing,CM + Processing,Reporting
+Product Name,File Path,Config file name,Config Type,Search Provider Used,CD,CM,Proc,CMProc,Reporting
 Platform,\website\,Web.config,config,,Enable,Enable,Enable,Enable,Enable
 Platform,\website\App_Config\,Commands.config,config,,Enable,Enable,Enable,Enable,Enable
 Platform,\website\App_Config\,ConnectionStrings.config,config,,Enable,Enable,Enable,Enable,Enable
