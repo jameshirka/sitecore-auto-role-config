@@ -83,6 +83,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="App.config" />
+    <None Include="ConfigSets\8.2.0.csv" />
     <None Include="ConfigSets\8.2.1.csv" />
     <None Include="ConfigSets\8.2.2.csv" />
     <None Include="packages.config" />
