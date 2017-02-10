@@ -2,7 +2,6 @@ namespace ConfigRenamer.Model
 {
     internal class Rename
     {
-        #region Public Properties
 
         public string ConfigFileName { get; set; }
 
@@ -15,7 +14,5 @@ namespace ConfigRenamer.Model
         public Ability ConfigSetting { get; set; }
 
         public SearchProvider SearchProviderUsed { get; set; }
-
-        #endregion
     }
 }

@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ConfigRenamer.Model;
 using FluentAssertions;
 
 namespace ConfigRenamer.Services
 {
-    public class ConfigRenamerService
+    public class ConfigRenamerService : IConfigRenamerService
     {
         #region Fields
 
@@ -105,24 +103,9 @@ namespace ConfigRenamer.Services
             return Ability.NotApplicable;
         }
 
-        private static SearchProvider ParseSearchProvider(string data)
+        public SearchProvider ParseSearchProvider(string data)
         {
-            if (data.ToLowerInvariant().Contains("lucene"))
-            {
-                return SearchProvider.Lucene;
-            }
-
-            if (data.ToLowerInvariant().Contains("solr"))
-            {
-                return SearchProvider.Solr;
-            }
-
-            if (data.ToLowerInvariant().Contains("azure"))
-            {
-                return SearchProvider.Azure;
-            }
-
-            return SearchProvider.All;
+            return Enum.GetValues(typeof(SearchProvider)).Cast<SearchProvider>().FirstOrDefault(mc => data.ToLowerInvariant().Contains(mc.ToString().ToLowerInvariant()));
         }
 
         private static void ProcessRename(Ability setting, string configPath)

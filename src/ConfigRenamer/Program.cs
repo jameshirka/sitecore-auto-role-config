@@ -1,14 +1,8 @@
-﻿using ConfigRenamer.Services;
+﻿using System;
+using ConfigRenamer.Services;
 
 namespace ConfigRenamer
-{
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using ConfigRenamer.Model;
-    using FluentAssertions;
-
+{    
     internal class Program
     {
         public static void Main(string[] args)
