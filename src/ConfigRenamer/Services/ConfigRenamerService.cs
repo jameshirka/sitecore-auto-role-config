@@ -117,6 +117,11 @@ namespace ConfigRenamer.Services
                 return SearchProvider.Solr;
             }
 
+            if (data.ToLowerInvariant().Contains("azure"))
+            {
+                return SearchProvider.Azure;
+            }
+
             return SearchProvider.All;
         }
 

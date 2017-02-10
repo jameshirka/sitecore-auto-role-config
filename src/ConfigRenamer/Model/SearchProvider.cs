@@ -7,5 +7,7 @@ namespace ConfigRenamer.Model
         Lucene, 
 
         Solr, 
+
+        Azure
     }
 }
