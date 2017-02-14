@@ -26,7 +26,7 @@ namespace ConfigRenamer.Services
         public ConfigRenamerService(Options options)
         {
             this.serverRole = options.ServerRole;
-            this.configSet = options.Version;
+            this.configSet = options.ConfigSet;
             this.webRoot = options.WebRoot;
             this.searchProvider = options.SearchProvider;
         }
@@ -55,7 +55,7 @@ namespace ConfigRenamer.Services
 
         private List<Rename> LoadConfigSet()
         {
-            var configLines = File.ReadAllLines($"./ConfigSets/{configSet}.csv");
+            var configLines = File.ReadAllLines(configSet);
 
             var headerRow = configLines.First().ToLowerInvariant();
             var serverRoleIndex = headerRow.Split(',').ToList().IndexOf(serverRole.ToLowerInvariant());

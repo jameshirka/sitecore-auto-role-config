@@ -14,8 +14,8 @@ namespace ConfigRenamer
         [Option('r', "role", Required = true, HelpText = "Server role")]
         public string ServerRole { get; set; }
 
-        [Option('v', "version", Required = true, HelpText = "Sitecore version")]
-        public string Version { get; set; }
+        [Option('f', "file", Required = true, HelpText = "Sitecore config file to read")]
+        public string ConfigSet { get; set; }
 
         [Option('w', "webroot", Required = true, HelpText = "Root of website")]
         public string WebRoot { get; set; }
