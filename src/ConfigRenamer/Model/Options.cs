@@ -1,8 +1,7 @@
-namespace ConfigRenamer
-{
-    using CommandLine;
+using CommandLine;
 
-    using ConfigRenamer.Model;
+namespace ConfigRenamer.Model
+{
 
     public class Options
     {
@@ -23,10 +22,3 @@ namespace ConfigRenamer
         #endregion
     }
 }
-
-/*
-             var configSet = "8.1Upd3.csv";
-            var serverRole = ServerRoleEnum.ContentManagement;
-            var webRoot = @"D:\Dev\personal\ConfigRenamer\TestData\Working";
-            var searchProvider = SearchProvider.Lucene;
- */

@@ -1,8 +1,9 @@
 ﻿using System;
+using ConfigRenamer.Model;
 using ConfigRenamer.Services;
 
 namespace ConfigRenamer
-{    
+{
     internal class Program
     {
         public static void Main(string[] args)
