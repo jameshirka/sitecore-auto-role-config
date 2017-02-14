@@ -1,9 +1,7 @@
-﻿namespace ConfigRenamer
+﻿namespace ConfigRenamer.Extensions
 {
     internal static class StringExtensions
     {
-        #region Public Methods and Operators
-
         public static string TrimEnd(this string input, string suffixToRemove)
         {
             if (input != null && suffixToRemove != null && input.EndsWith(suffixToRemove))
@@ -27,7 +25,5 @@
                 return input;
             }
         }
-
-        #endregion
     }
 }

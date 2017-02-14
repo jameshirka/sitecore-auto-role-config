@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ConfigRenamer.Model;
+using ConfigRenamer.Extensions;
 using FluentAssertions;
 
 namespace ConfigRenamer.Services
