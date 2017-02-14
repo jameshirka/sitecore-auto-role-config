@@ -80,19 +80,11 @@
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ConfigSets\8.1.3.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="ConfigSets\8.1.3.csv" />
     <None Include="App.config" />
-    <None Include="ConfigSets\8.2.0.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigSets\8.2.1.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigSets\8.2.2.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="ConfigSets\8.2.0.csv" />
+    <None Include="ConfigSets\8.2.1.csv" />
+    <None Include="ConfigSets\8.2.2.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
