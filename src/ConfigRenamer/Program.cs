@@ -13,9 +13,6 @@ namespace ConfigRenamer
 
             var renameService = new ConfigRenamerService(options);
             renameService.Rename();
-
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey();
         }
 
     }
