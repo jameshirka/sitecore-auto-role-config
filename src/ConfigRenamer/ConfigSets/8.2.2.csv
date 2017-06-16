@@ -113,7 +113,7 @@ Marketing Foundation,\website\App_Config\Include,Sitecore.Marketing.Taxonomy.con
 Marketing Foundation,\website\App_Config\Include,Sitecore.Marketing.TaxonomyCD.config.disabled,config,,Enable,Disable,Disable,Disable,Disable,Disable
 Marketing Foundation,\website\App_Config\Include,Sitecore.MarketingCD.config.disabled,config,,Enable,Disable,Disable,Disable,Disable,Disable
 Marketing Foundation,\website\App_Config\Include,Sitecore.MarketingProcessingRole.config.disabled,config,,Disable,Disable,Enable,Disable,Disable,Disable
-Marketing Foundation,\website\App_Config\Include,Sitecore.MarketingReportingRole.config.disabled,config,,Disable,Disable,Disable,Disable,Enable,Enable
+Marketing Foundation,\website\App_Config\Include,Sitecore.MarketingReportingRole.config.disabled,config,,Disable,Disable,Disable,Disable,Enable,Disable
 Platform,\website\App_Config\Include,Sitecore.Media.RequestProtection.config,config,,Enable,Enable,Disable,Enable,Disable,Enable
 Platform - MVC,\website\App_Config\Include,Sitecore.Mvc.config,config,,Enable,Enable,Enable,Enable,Enable,Enable
 Platform - MVC,\website\App_Config\Include,Sitecore.MvcAnalytics.config,config,,Enable,Enable,Enable,Enable,Enable,Enable
