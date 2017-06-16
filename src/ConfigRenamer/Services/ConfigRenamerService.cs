@@ -58,7 +58,6 @@ namespace ConfigRenamer.Services
                 catch (Exception e)
                 {
                     Log($"Failed to rename [{configPath}], Exception [{e}]");
-                    throw;
                 }
             }
         }
