@@ -40,16 +40,25 @@ namespace ConfigRenamer.Services
 
             foreach (var fileToProcess in files)
             {
-                var configFileNameTrimmed = fileToProcess.ConfigFileName.TrimEnd(".example").TrimEnd(".disabled");
 
+                var configFileNameTrimmed = fileToProcess.ConfigFileName.TrimEnd(".example").TrimEnd(".disabled");
                 var configPath = $"{webRoot}{fileToProcess.FilePath}{configFileNameTrimmed}";
-                if (fileToProcess.SearchProviderUsed == SearchProvider.All || fileToProcess.SearchProviderUsed == searchProvider)
+
+                try
                 {
-                    ProcessRename(fileToProcess.ConfigSetting, configPath);
+                    if (fileToProcess.SearchProviderUsed == SearchProvider.All || fileToProcess.SearchProviderUsed == searchProvider)
+                    {
+                        ProcessRename(fileToProcess.ConfigSetting, configPath);
+                    }
+                    else
+                    {
+                        RenameToDisable(configPath);
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    RenameToDisable(configPath);
+                    Log($"Failed to rename [{configPath}], Exception [{e}]");
+                    throw;
                 }
             }
         }
@@ -128,19 +137,12 @@ namespace ConfigRenamer.Services
 
             if (File.Exists(configPath))
             {
-                if (File.Exists(disabledPath))
-                {
-                    Log($"Could not disable file as it already exists {disabledPath}");
-                }
-                else
-                {
-                    File.Move(configPath, disabledPath);
-                }
+                File.Move(configPath, disabledPath);
             }
 
             try
             {
-                File.Exists(configPath).Should().BeFalse("Enabled File Should not Exist {0}", configPath);
+                File.Exists(configPath).Should().BeFalse($"Enabled File Should not Exist {configPath}");
             }
             catch (Exception exception)
             {
@@ -155,25 +157,11 @@ namespace ConfigRenamer.Services
 
             if (File.Exists(disabledPath))
             {
-                if (File.Exists(configPath))
-                {
-                    Log($"Could not enable file as it already exists {configPath}");
-                }
-                else
-                {
-                    File.Move(disabledPath, configPath);
-                }
+                File.Move(disabledPath, configPath);
             }
             else if (File.Exists(examplePath))
             {
-                if (File.Exists(configPath))
-                {
-                    Log($"Could not enable file as it already exists {configPath}");
-                }
-                else
-                {
-                    File.Move(examplePath, configPath);
-                }
+                File.Move(examplePath, configPath);
             }
 
             try
@@ -185,6 +173,7 @@ namespace ConfigRenamer.Services
                 Log(exception.Message);
             }
         }
+
 
     }
 }
