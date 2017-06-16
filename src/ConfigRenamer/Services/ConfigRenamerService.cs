@@ -10,6 +10,13 @@ namespace ConfigRenamer.Services
 {
     public class ConfigRenamerService : IConfigRenamerService
     {
+        #region Constants
+
+        private const string DisabledFileExtension = ".disabled";
+        private const string ExampleFileExtension = ".example";
+
+        #endregion
+
         #region Fields
 
         private readonly string configSet;
@@ -41,7 +48,7 @@ namespace ConfigRenamer.Services
             foreach (var fileToProcess in files)
             {
 
-                var configFileNameTrimmed = fileToProcess.ConfigFileName.TrimEnd(".example").TrimEnd(".disabled");
+                var configFileNameTrimmed = fileToProcess.ConfigFileName.TrimEnd(ExampleFileExtension).TrimEnd(DisabledFileExtension);
                 var configPath = $"{webRoot}{fileToProcess.FilePath}{configFileNameTrimmed}";
 
                 try
@@ -132,7 +139,7 @@ namespace ConfigRenamer.Services
 
         private static void RenameToDisable(string configPath)
         {
-            var disabledPath = $"{configPath}.disabled";
+            var disabledPath = $"{configPath}{DisabledFileExtension}";
 
             if (File.Exists(configPath))
             {
@@ -151,8 +158,8 @@ namespace ConfigRenamer.Services
 
         private static void RenameToEnable(string configPath)
         {
-            var examplePath = $"{configPath}.example";
-            var disabledPath = $"{configPath}.disabled";
+            var examplePath = $"{configPath}{ExampleFileExtension}";
+            var disabledPath = $"{configPath}{DisabledFileExtension}";
 
             if (File.Exists(disabledPath))
             {
