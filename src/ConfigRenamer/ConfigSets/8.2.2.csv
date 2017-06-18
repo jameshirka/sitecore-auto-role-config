@@ -37,7 +37,7 @@ Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Processing.S
 Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Reporting.config,config,,Disable,Enable,Disable,Enable,Enable,Enable
 Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Tracking.Aggregation.config,config,,Enable,Disable,Disable,Disable,Disable,Disable
 Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Tracking.config,config,,Enable,Enable,Disable,Enable,Disable,Enable
-Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Tracking.Database.config,config,,Enable,Disable,Disable,Disable,Disable,Disable
+Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Tracking.Database.config,config,,Enable,Disable,Disable,Disable,Disable,Enable
 Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Tracking.Database.ScaledCM.config.disabled,config,,Disable,Disable,Disable,Disable,Disable,Disable
 Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Tracking.Outcome.config,config,,Enable,Enable,Enable,Enable,Enable,Enable
 Marketing Foundation,\website\App_Config\Include,Sitecore.Analytics.Tracking.RobotDetection.config,config,,Enable,Disable,Disable,Disable,Disable,Disable
