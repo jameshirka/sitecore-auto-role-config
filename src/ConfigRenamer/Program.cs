@@ -11,8 +11,17 @@ namespace ConfigRenamer
             var options = new Options();
             CommandLine.Parser.Default.ParseArgumentsStrict(args, options, () => { throw new Exception("Invalid arguments"); });
 
-            var renameService = new ConfigRenamerService(options);
-            renameService.Rename();
+            if (options.Validate)
+            {
+                var validationService = new ValidationService(options);
+                validationService.Validate();
+            }
+            else
+            {
+                var renameService = new ConfigRenamerService(options);
+                renameService.Rename();
+
+            }
         }
 
     }

@@ -2,7 +2,22 @@
 
 This project has been created to simplify the process of renaming Sitecore configuration 
 
-Sample usage: configrenamer.exe -s Azure -f c:\temp\configsets\8.1.3.csv -r "Content Delivery (CD)" -w c:\sites\website
+Switches:
+ - -s Search provider to be used
+ - -f CSV file to be read
+ - -r The role header from the CSV
+ - -w The website root folder
+ - -v Validate the rename worked correclty
+
+Sample usage: 
+Rename configs for a Content Delivery site based on Azure search index with the CSV c:\temp\configsets\8.1.3.csv.
+
+configrenamer.exe -s Azure -f c:\temp\configsets\8.1.3.csv -r "Content Delivery (CD)" -w c:\sites\website
+
+Validate a Content Delivery site is setup correctly
+
+configrenamer.exe -s Azure -f c:\temp\configsets\8.1.3.csv -r "Content Delivery (CD)" -w c:\sites\website -v
+
 
 Some words of warning:
 

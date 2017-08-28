@@ -19,6 +19,9 @@ namespace ConfigRenamer.Model
         [Option('w', "webroot", Required = true, HelpText = "Root of website")]
         public string WebRoot { get; set; }
 
+        [Option('v', "validate", Required = false, HelpText = "Validates the configuration")]
+        public bool Validate { get; set; }
+
         #endregion
     }
 }

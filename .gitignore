@@ -186,3 +186,4 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+/src/.vs/ConfigRenamer/v15/sqlite3/storage.ide

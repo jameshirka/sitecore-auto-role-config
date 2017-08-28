@@ -8,11 +8,12 @@ using FluentAssertions;
 
 namespace ConfigRenamer.Services
 {
-    public class ConfigRenamerService : IConfigRenamerService
+    public class ValidationService : IValidationService
     {
         #region Constants
 
         private const string DisabledFileExtension = ".disabled";
+
         private const string ExampleFileExtension = ".example";
 
         #endregion
@@ -31,7 +32,7 @@ namespace ConfigRenamer.Services
 
         #region Constructor
 
-        public ConfigRenamerService(Options options)
+        public ValidationService(Options options)
         {
             this.serverRole = options.ServerRole;
             this.configSet = options.ConfigSet;
@@ -41,30 +42,32 @@ namespace ConfigRenamer.Services
 
         #endregion
 
-        public void Rename()
+        public void Validate()
         {
             var files = new ConfigFiles(this.configSet, this.serverRole);
 
             foreach (var fileToProcess in files.ConfigChanges)
             {
 
-                var configFileNameTrimmed = fileToProcess.ConfigFileName.TrimEnd(ExampleFileExtension).TrimEnd(DisabledFileExtension);
+                var configFileNameTrimmed = fileToProcess.ConfigFileName.TrimEnd(ExampleFileExtension)
+                    .TrimEnd(DisabledFileExtension);
                 var configPath = $"{webRoot}{fileToProcess.FilePath}{configFileNameTrimmed}";
 
                 try
                 {
-                    if (fileToProcess.SearchProviderUsed == SearchProvider.All || fileToProcess.SearchProviderUsed == searchProvider)
+                    if (fileToProcess.SearchProviderUsed == SearchProvider.All
+                        || fileToProcess.SearchProviderUsed == searchProvider)
                     {
-                        ProcessRename(fileToProcess.ConfigSetting, configPath);
+                        ValidateFile(fileToProcess.ConfigSetting, configPath);
                     }
                     else
                     {
-                        RenameToDisable(configPath);
+                        ValidateDisabledFile(configPath);
                     }
                 }
                 catch (Exception e)
                 {
-                    Log($"Failed to rename [{configPath}], Exception [{e}]");
+                    Log($"Failed to check [{configPath}], Exception [{e}]");
                 }
             }
         }
@@ -77,59 +80,35 @@ namespace ConfigRenamer.Services
 
 
 
-        private static void ProcessRename(Ability setting, string configPath)
+        private static void ValidateFile(Ability setting, string configPath)
         {
             switch (setting)
             {
                 case Ability.Disable:
-                    RenameToDisable(configPath);
+                    ValidateDisabledFile(configPath);
                     break;
                 case Ability.Enable:
-                    RenameToEnable(configPath);
+                    ValidateEnabledFile(configPath);
                     break;
             }
         }
 
-        private static void RenameToDisable(string configPath)
+        private static void ValidateDisabledFile(string configPath)
         {
-            var disabledPath = $"{configPath}{DisabledFileExtension}";
-
             if (File.Exists(configPath))
             {
-                File.Move(configPath, disabledPath);
-            }
-
-            try
-            {
-                File.Exists(configPath).Should().BeFalse($"Enabled File Should not Exist {configPath}");
-            }
-            catch (Exception exception)
-            {
-                Log(exception.Message);
+                Log($"- {configPath}{DisabledFileExtension}");
             }
         }
 
-        private static void RenameToEnable(string configPath)
+        private static void ValidateEnabledFile(string configPath)
         {
             var examplePath = $"{configPath}{ExampleFileExtension}";
             var disabledPath = $"{configPath}{DisabledFileExtension}";
 
-            if (File.Exists(disabledPath))
+            if (File.Exists(disabledPath) || File.Exists(examplePath))
             {
-                File.Move(disabledPath, configPath);
-            }
-            else if (File.Exists(examplePath))
-            {
-                File.Move(examplePath, configPath);
-            }
-
-            try
-            {
-                File.Exists(configPath).Should().BeTrue($"Enabled File Should Exist {configPath}");
-            }
-            catch (Exception exception)
-            {
-                Log(exception.Message);
+                Log($"+ {configPath}");
             }
         }
 
